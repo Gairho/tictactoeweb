@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Fireflies styles */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #111;
+            color: #fff; /* Set text color to white */
+        }
+
+        .fireflies {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .fireflies li {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            list-style: none;
+            animation: flicker 3s infinite alternate;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .fireflies li:nth-child(1) {
+            top: 50%;
+            left: 25%;
+        }
+
+        .fireflies li:nth-child(2) {
+            top: 25%;
+            left: 75%;
+        }
+
+        .fireflies li:nth-child(3) {
+            top: 75%;
+            left: 50%;
+        }
+
+        .fireflies li:nth-child(4) {
+            top: 20%;
+            left: 20%;
+        }
+
+        .fireflies li:nth-child(5) {
+            top: 80%;
+            left: 80%;
+        }
+
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Centered play button */
+        .play-button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .play-button {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: #fff; /* Changed button color to white */
+            color: #111; /* Changed text color to black */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .play-button:hover {
+            background-color: #ddd; /* Lighter background color on hover */
+        }
+
+        /* Text above Play Game Button */
+        .play-game-text {
+            margin-bottom: 20px; /* Added margin to create separation */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fireflies -->
+    <ul class="fireflies">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- Tic Tac Toe Container -->
+    <div class="container" id="tic-tac-toe-container" style="display: none;">
+        <h1>Tic Tac Toe</h1>
+        <div id="status-message"></div>
+        <div class="game-board" id="game-board">
+            <div class="cell" onclick="makeMove(0)"></div>
+            <div class="cell" onclick="makeMove(1)"></div>
+            <div class="cell" onclick="makeMove(2)"></div>
+            <div class="cell" onclick="makeMove(3)"></div>
+            <div class="cell" onclick="makeMove(4)"></div>
+            <div class="cell" onclick="makeMove(5)"></div>
+            <div class="cell" onclick="makeMove(6)"></div>
+            <div class="cell" onclick="makeMove(7)"></div>
+            <div class="cell" onclick="makeMove(8)"></div>
+        </div>
+        <button onclick="resetGame()">Reset Game</button>
+    </div>
+
+    <!-- Text above Play Game Button -->
+    <div class="play-button-container">
+        <h2 class="play-game-text">If you wanna play Tic Tac Toe</h2>
+        <h2 class="play-game-text">press the button below:</h2>
+        <button class="play-button" onclick="startGame()">Play Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            document.getElementById("tic-tac-toe-container").style.display = "block";
+            document.querySelector(".play-button-container").style.display = "none";
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
